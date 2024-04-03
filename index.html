@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- custom css link -->
+    <link rel="stylesheet" href="css/style.css">
+  
+  
+
+</head>
+<body>
+    
+   
+    <header class="header">
+        <a href="#" class="logo"><i class="fas fa-book"></i> QuietQuizzes</a>
+        <nav class="navbar">
+            <a href="#home" class="hover-underline">home</a>
+            <a href="#about" class="hover-underline">about</a>
+            <a href="#courses" class="hover-underline">courses</a>
+            <a href="#Quizzes" class="hover-underline">Quizzes</a>
+            <a href="#review" class="hover-underline">review</a>
+            <a href="#blog" class="hover-underline">blog</a>
+            <a href="#contact" class="hover-underline">contact</a>
+        </nav>
+        <div class="icons">
+            <div id="login-btn" class="fas fa-user"></div>
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <!-- Sign Up button -->
+            <a href="signup.html" class="btn">Sign Up</a>
+        </div>
+    </header>
+    
+
+    <!-- home section starts-->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>the best courses and quizzes you will find here</h3>
+            <p>Our smart courses and quizzes are to make you remember topics better. If you get a question wrong, we’ll show you the content again but in a different format. We’ll even do it at a time when it’s optimal for you to learn it. </p>
+            <button id="start-btn" class="btn">
+                <span class="text text-1">Start Quiz</span>
+                <span class="text text-2" aria-hidden="true">Start Quiz</span>
+            </button>
+        </div>
+    </section>
+    
+    <!-- home section ends -->
+    
+    <!-- quizz section starts -->
+    
+    
+    <!-- Quizzer Section -->
+<section class="quizzer">
+    <div class="container">
+      <div id="operation-buttons" class="button-container">
+        <h1>Quizzes </h1>
+
+        <button onclick="openQuizModal('addition')">Addition Quiz</button>
+        <button onclick="openQuizModal('subtraction')">Subtraction Quiz</button>
+        <button onclick="openQuizModal('multiplication')">Multiplication Quiz</button>
+        <button onclick="openQuizModal('division')">Division Quiz</button>
+      </div>
+  
+      <div id="quiz-modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeQuizModal()">&times;</span>
+          <div id="quiz-container"></div>
+          <button onclick="restartQuiz()">Restart Quiz</button>
+          <button onclick="closeQuizModal()">Go Back</button> <!-- Button to go back -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Quizzer Section Ends -->
+  
+   
+
+    <!-- about section starts -->
+
+    <section class="about" id="about">
+
+        <h1 class="heading">about us</h1>
+
+        <div class="container">
+
+            <figure class="about-image">
+                <img src="images/aboutUs.jpg" alt="" height="500">
+                <img src="images/aboutUs.jpg" alt="" class="about-img">
+            </figure>
+
+            <div class="about-content">
+                <h3>How to use maximum of our website</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus aut impedit expedita aliquam 
+                    provident quod excepturi minus. Similique eveniet fugiat doloribus nisi saepe cupiditate iusto itaque totam! Officia, enim qui.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni voluptatum ipsa quod dolores officia at excepturi quas numquam vero dolorem vitae 
+                    veritatis quisquam fugit voluptates doloribus, id pariatur in ipsam?</p>    
+                <a href="#" class="btn">
+                    <span class="text text-1">read more</span>
+                    <span class="text text-2" aria-hidden="true">read more</span>
+                </a>        
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- about section ends -->
+
+
+    <!-- courses section starts -->
+
+    <section class="courses" id="courses">
+
+        <h1 class="heading">our famous courses</h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <div class="image shine">
+                    <img src="images/communication.jpg" alt="">
+                    <h3>Basic</h3>
+                </div>
+                <div class="content">
+                    <h4>Rs.49.99</h4>
+                    <p>updated 25/09/2023</p>
+                    <h3>Learning Sign  Language</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(785)</span>
+                    </div>
+                    <div class="icons">
+                        <span><i class="far fa-bookmark"></i> 15 lessons</span>
+                        <span><i class="far fa-clock"></i> 8h 25m 9s</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image shine">
+                    <img src="images/maths.jpg" alt="">
+                    <h3>Basic </h3>
+                </div>
+                <div class="content">
+                    <h4>Rs.49.99</h4>
+                    <p>updated 25/09/2023</p>
+                    <h3>Mathematics</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(785)</span>
+                    </div>
+                    <div class="icons">
+                        <span><i class="far fa-bookmark"></i> 15 lessons</span>
+                        <span><i class="far fa-clock"></i> 8h 25m 9s</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image shine">
+                    <img src="images/bio.jpg" alt="">
+                    <h3>Basic</h3>
+                </div>
+                <div class="content">
+                    <h4>Rs.49.99</h4>
+                    <p>updated 25/09/2023</p>
+                    <h3>Biology</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(785)</span>
+                    </div>
+                    <div class="icons">
+                        <span><i class="far fa-bookmark"></i> 15 lessons</span>
+                        <span><i class="far fa-clock"></i> 8h 25m 9s</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image shine">
+                    <img src="images/english.jpg" alt="">
+                    <h3>Basic</h3>
+                </div>
+                <div class="content">
+                    <h4>Rs.49.99</h4>
+                    <p>updated 25/09/2023</p>
+                    <h3>English</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(785)</span>
+                    </div>
+                    <div class="icons">
+                        <span><i class="far fa-bookmark"></i> 15 lessons</span>
+                        <span><i class="far fa-clock"></i> 8h 25m 9s</span>
+                    </div>
+                </div>
+            </div>
+
+           
+
+    </section>
+
+    <!-- courses section ends -->
+
+    <!-- teacher section starts -->
+
+    <section class="teacher" id="teacher">
+
+        <h1 class="heading">our expert teacher</h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <div class="image">
+                    <img src="images/teacher-1.png" alt="">
+                    <div class="share">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>john deo</h3>
+                    <span> Sign Language instructor</span>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="images/teacher-2.png" alt="">
+                    <div class="share">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>john deo</h3>
+                    <span> Mathematics instructor</span>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="images/teacher-3.png" alt="">
+                    <div class="share">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>john deo</h3>
+                    <span>Biology instructor</span>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="images/teacher-4.png" alt="">
+                    <div class="share">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>john deo</h3>
+                    <span>Englilsh instructor</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- teacher section ends -->
+
+    <!-- review section starts -->
+
+    <section class="review" id="review">
+
+        <h1 class="heading">our students review</h1>
+
+        <div class="swiper review-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slide">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium laudantium distinctio dolore molestias facilis velit pariatur maiores debitis inventore.</p>
+                    <div class="wrapper">
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                    </div>
+                    <i class="fas fa-quote-right"></i>
+                    <div class="user">
+                        <img src="images/review-1.png" alt="">
+                        <div class="user-info">
+                            <h3>john deo</h3>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium laudantium distinctio dolore molestias facilis velit pariatur maiores debitis inventore.</p>
+                    <div class="wrapper">
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                    </div>
+                    <i class="fas fa-quote-right"></i>
+                    <div class="user">
+                        <img src="images/review-2.png" alt="">
+                        <div class="user-info">
+                            <h3>john deo</h3>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium laudantium distinctio dolore molestias facilis velit pariatur maiores debitis inventore.</p>
+                    <div class="wrapper">
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                    </div>
+                    <i class="fas fa-quote-right"></i>
+                    <div class="user">
+                        <img src="images/review-3.png" alt="">
+                        <div class="user-info">
+                            <h3>john deo</h3>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium laudantium distinctio dolore molestias facilis velit pariatur maiores debitis inventore.</p>
+                    <div class="wrapper">
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                    </div>
+                    <i class="fas fa-quote-right"></i>
+                    <div class="user">
+                        <img src="images/review-4.png" alt="">
+                        <div class="user-info">
+                            <h3>john deo</h3>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium laudantium distinctio dolore molestias facilis velit pariatur maiores debitis inventore.</p>
+                    <div class="wrapper">
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                    </div>
+                    <i class="fas fa-quote-right"></i>
+                    <div class="user">
+                        <img src="images/review-5.png" alt="">
+                        <div class="user-info">
+                            <h3>john deo</h3>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium laudantium distinctio dolore molestias facilis velit pariatur maiores debitis inventore.</p>
+                    <div class="wrapper">
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                        <div class="separator"></div>
+                    </div>
+                    <i class="fas fa-quote-right"></i>
+                    <div class="user">
+                        <img src="images/review-6.png" alt="">
+                        <div class="user-info">
+                            <h3>john deo</h3>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- review section ends -->
+
+    <!-- blog section starts -->
+
+    <section class="blog" id="blog">
+
+        <h1 class="heading">our blogs</h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <div class="image shine">
+                    <img src="images/girl1.jpg" alt="">
+                    <h3>09 dec 2023</h3>
+                </div>
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"><i class="fas fa-user"></i>by admin</a>
+                    </div>
+                    <h3>we have best courses for you</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam explicabo minus.</p>
+                    <a href="#" class="btn">
+                        <span class="text text-1">read more</span>
+                        <span class="text text-2" aria-hidden="true">read more</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image shine">
+                    <img src="images/girl2.jpg" alt="">
+                    <h3>09 dec 2023</h3>
+                </div>
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"><i class="fas fa-user"></i>by admin</a>
+                    </div>
+                    <h3>we have best courses for you</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam explicabo minus.</p>
+                    <a href="#" class="btn">
+                        <span class="text text-1">read more</span>
+                        <span class="text text-2" aria-hidden="true">read more</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image shine">
+                    <img src="images/girl3.jpg" alt="">
+                    <h3>09 dec 2023</h3>
+                </div>
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"><i class="fas fa-user"></i>by admin</a>
+                    </div>
+                    <h3>we have best courses for you</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam explicabo minus.</p>
+                    <a href="#" class="btn">
+                        <span class="text text-1">read more</span>
+                        <span class="text text-2" aria-hidden="true">read more</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- blog section ends -->
+
+    <!-- contact section starts -->
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading">contact us</h1>
+
+        <div class="row">
+            <div class="image">
+                <img src="images/contact.png" alt="">
+            </div>
+            <form action="">
+                <h3>send us a message or query</h3>
+                <input type="text" placeholder="name" class="box">
+                <input type="email" placeholder="email" class="box">
+                <input type="number" placeholder="phone number" class="box">
+                <textarea placeholder="message" class="box" cols="30" rows="10"></textarea>
+                <a href="#" class="btn">
+                    <span class="text text-1">send message</span>
+                    <span class="text text-2" aria-hidden="true">send message</span>
+                </a>
+            </form>
+        </div>
+
+    </section>
+
+    <!-- contact section ends -->
+
+    <!-- footer section stars -->
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>find us here</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum beatae.</p>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>contact us</h3>
+                <p>+1234 587 1478</p>
+                <a href="#" class="link">gayatritaware7878@gmail.com</a>
+            </div>
+
+            <div class="box">
+                <h3>localization</h3>
+                <p>230 points of the pines <br>
+                colorado springs <br>
+                united states</p>
+            </div>
+
+      
+    </section>
+
+    <!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- custom js -->
+    <script src="js/script.js"></script>
+</body>
+</html>
