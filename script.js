@@ -197,3 +197,15 @@ function evaluateAnswer(quizType, num1, num2) {
             return null;
     }
 }
+var swiper = new Swiper(".review-slider", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    autoplay:{
+        delay:1500,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
