@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap");
 
 :root {
-  --primary-color: #7000ff;
-  --secondary: rgb(0 0 255 / 41%);
+  --primary-color:rgba(47, 54, 64,1.0);
+  --secondary: rgba(255, 204, 204,1.0);
   --black: #141414;
   --white: white;
   --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
- --background-color: lightblue;
+  --background-color:rgba(47, 54, 64,1.0);        
+           
 }
 
 *{
@@ -45,7 +46,7 @@ section{
 
 .heading{
   position: relative;
-  color: var(--black);
+  color: white;
   font-size: 3rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -66,7 +67,7 @@ section{
   position: relative;
   display: inline-block;
   margin-top: 1rem;
-  color: var(--black);
+  color: rgba(179, 55, 113,1.0);
   font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -86,7 +87,7 @@ section{
   transform: translateX(-50%);
   width: 200%; height: 200%;
   border-radius: 50%;
-  background-color: var(--primary-color);
+  background-color:rgba(255, 204, 204,1.0);
   transition: 500ms ease;
   z-index: -1;
 }
@@ -143,7 +144,8 @@ section{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: darkCyan;
+  background-color:rgba(47, 54, 64,1.0);
+  
   border-radius: 5px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   padding: 50px 0;
@@ -156,9 +158,9 @@ section{
   text-align: center;
 }
 
-.quizzer h3 {
+.quizzer h1 {
   font-size: 3rem;
-  color: var(--primary-color);
+  color: white;
   font-weight: bold; /* Make heading bold */
 }
 
@@ -171,7 +173,7 @@ section{
 .button-container button {
   margin: 0 20px; /* Add space between buttons */
   padding: 10px 30px; /* Adjust button padding */
-  background-color: #00d0ff;
+  background-color: rgba(255, 204, 204,1.0);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -179,19 +181,19 @@ section{
 }
 
 .button-container button:hover {
-  background-color: #00b354;
+  background-color: rgba(179, 55, 113,1.0) ;
 }
 
 .close {
-  color: #aaa;
+  color:  rgba(255, 204, 204,1.0);
   float: right;
-  font-size: 28px;
+  font-size: 50px;
   font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: rgba(179, 55, 113,1.0) ;
   text-decoration: none;
   cursor: pointer;
 }
@@ -206,7 +208,7 @@ section{
 
 .score p {
   font-size: 18px;
-  color: #333; /* Dark gray text color */
+  color:rgba(179, 55, 113,1.0); /* Dark gray text color */
 }
 
 .smiley {
@@ -238,7 +240,7 @@ section{
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  background-color: lightblue;
+  background-color: rgba(255, 184, 184,1.0);
   box-shadow: var(--box-shadow);
   display: flex;
   justify-content: space-between;
@@ -249,23 +251,23 @@ section{
 .header .logo{
   font-size: 2.5rem;
   font-weight: bolder;
-  color: var(--black);
+  color: white;
 }
 
 .header .logo i{
-  color: var(--primary-color);
+  color: white;
   padding-right: .5rem;
 }
 
 .header .navbar a{
   font-size: 1.7rem;
-  color: var(--black);
+  color: white;
   margin: 0 1rem;
   padding-block: 1rem;
 }
 
 .header .navbar a:hover{
-  color: var(--black);
+  color: var(--white);
 }
 
 .header .navbar .hover-underline{
@@ -279,7 +281,7 @@ section{
   left: 0; bottom: 0;
   width: 100%;
   height: .5rem;
-  border-block: .1rem solid var(--black);
+  border-block: .1rem solid var(--white);
   transform: scaleX(0.2);
   opacity: 0;
   transition: 500ms ease;
@@ -293,60 +295,60 @@ section{
 .header .icons div{
   font-size: 2.5rem;
   margin-left: 1.7rem;
-  color: var(--black);
+  color: var(rgba(179, 55, 113,1.0));
   cursor: pointer;
 }
 
 .header .icons div:hover{
-  color: var(--black);
+  color: var(--white);
 }
 
 #menu-btn{
   display: none;
 }
 
-.header .login-form{
+.header .signup-form{
   position: absolute;
   top: 115%; right: -105%;
-  background: var(--white);
+  background: var(rgba(179, 55, 113,1.0));
   box-shadow: .5rem;
   width: 35rem;
   box-shadow: var(--box-shadow);
   padding: 2rem;
 }
 
-.header .login-form.active{
+.header .signup-form.active{
   right: 2rem;
   transition: .4s linear;
 }
 
-.header .login-form h3{
+.header .signup-form h3{
   font-size: 2.2rem;
-  color: var(--black);
+  color: var(white);
   text-align: center;
   margin-bottom: .7rem;
 }
 
-.header .login-form .box{
+.header .signup-form .box{
   font-size: 1.5rem;
   margin: .7rem 0;
-  border: .1rem solid rgba(0, 0, 0, 0.1);
+  border: .1rem solid rgb(243, 209, 214);
   padding: 1rem 1.2rem;
-  color: var(--black);
+  color:white;
   text-transform: none;
   width: 100%;
 }
 
-.header .login-form .remember{
+.header .signup-form .remember{
   display: flex;
   align-items: center;
   gap: .5rem;
   margin: .7rem 0;
 }
 
-.header .login-form .remember label{
+.header .signup .remember label{
   font-size: 1.5rem;
-  color: var(--black);
+  color: var(--white);
   cursor: pointer;
 }
 
@@ -356,12 +358,30 @@ section{
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url('images/Navy blue and Purple Minimalist Illustrated Night Sky Phone Wallpaper.png');
+  background-color: rgba(47, 54, 64,1.0) ;
   
-  background-size: cover;
-  background-repeat: no-repeat; 
-  background-size: cover;
-  background-position: center;
+}
+.image-container {
+  flex: 1; 
+  display: flex;
+  justify-content: flex-end; 
+}
+.image-container .image {
+  width: 600px; /* Set the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+.image-container .image:hover {
+  transform: scale(1.1); /* Increase scale on hover */
+  transition: transform 0.3s ease; /* Add smooth transition effect */
+}
+
+
+.home.image {
+  max-width:600%; 
+  height: auto; 
+}
+.home.btn:hover {
+  background-color: rgba(179, 55, 113,1.0) ;
 }
 
 .home .content{
@@ -370,13 +390,13 @@ section{
 
 .home .content h3 {
   font-size: 5rem;
-  color: #141414;
+  color: white;
   line-height: 1.2;
 }
 .home .content p{
   font-size: 1.5rem;
   line-height: 2;
-  color:#444;
+  color:white;
   padding: 1rem 0;
 }
 
@@ -384,13 +404,14 @@ section{
 
 /* about */
 .about{
-  background-color: lightblue;
+  background-color:  rgba(47, 54, 64,1.0);
+ 
 }
 
 .about .container{
   display: flex;
   flex-wrap: wrap;
-  background-color: lightblue;
+  background-color: rgba(47, 54, 64,1.0);
 }
 
 .about .container .about-image{
@@ -418,72 +439,23 @@ section{
 
 .about .container .about-content h3{
   font-size: 3rem;
-  color: var(--primary-color);
+  color: white;
 }
 
 .about .container .about-content p{
   font-size: 1.6rem;
-  color: #444;
+  color:white;
   padding: 1rem 0;
   line-height: 1.8;
 }
 
 /* ends */
 
-/* subjects */
-.subjects{
-  background-color: lightblue;
-}
 
-.subjects .box-container{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  gap: 2rem;
-}
-
-.subjects .box-container .box{
-  padding: 3rem 2rem;
-  text-align: center;
-  border: .1rem solid var(--black);
-  background: var(--secondary);
-  cursor: pointer;
-}
-
-.subjects .box-container .box:hover{
-  background: var(--primary-color);
-}
-
-.subjects .box-container .box img{
-  height: 10rem;
-  margin-bottom: .7rem;
-}
-
-.subjects .box-container .box h3{
-  font-size: 1.7rem;
-  color: #444;
-  padding: .5rem 0;
-  text-transform: capitalize;
-}
-
-.subjects .box-container .box:hover h3{
-  color: #fff;
-}
-
-.subjects .box-container .box p{
-  font-size: 1.5rem;
-  line-height: 2;
-  color: #777;
-}
-
-.subjects .box-container .box:hover p{
-  color: #eee;
-}
-
-/* end */
 
 /* courses */
 .courses{
-  background-color: lightblue;
+  background-color: rgba(47, 54, 64,1.0)!important;
 }
 
 .courses .box-container{
@@ -507,26 +479,29 @@ section{
 .courses .box-container .box:hover .image img{
   transform: scale(1.1);
 }
-
+.courses h1{
+  background-color: rgba(47, 54, 64,1.0);
+  color: white;
+}
 .courses .box-container .box .image h3{
   font-size: 1.5rem;
-  color: #444;
+  color:white;
   position: absolute;
   top: 1rem; left: 1rem;
   padding: .5rem 1.5rem;
-  background: var(--white);
+  background-color: rgba(47, 54, 64,1.0);
 }
 
 .courses .box-container .box .content{
   padding: 2rem;
   position: relative;
-  border: 0.1rem solid var(--black);
+  border: 0.1rem solid white;
 }
 
 .courses .box-container .box .content h4{
   position: absolute;
-  background: var(--black);
-  color: var(--secondary);
+  background-color: var(rgba(47, 54, 64,1.0));
+  color: white;
   top: -3rem; right: 1.5rem;
   width: 6rem; 
   height: 6rem;
@@ -538,13 +513,13 @@ section{
 
 .courses .box-container .box .content p{
   font-size: 1.4rem;
-  color: #444;
+  color:white;
   line-height: 2;
 }
 
 .courses .box-container .box .content h3{
   font-size: 2rem;
-  color: #444;
+  color:white;
 }
 
 .courses .box-container .box .content .stars{
@@ -553,12 +528,12 @@ section{
 
 .courses .box-container .box .content .stars i{
   font-size: 1.7rem;
-  color: var(--black);
+  color: var(--pink);
 }
 
 .courses .box-container .box .content .stars span{
   font-size: 1.4rem;
-  color: #777;
+  color:white;
   margin-left: .5rem;
 }
 
@@ -568,16 +543,16 @@ section{
   align-items: center;
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 0.1rem solid var(--black);
+  border-top: 0.1rem solid var(--pink);
 }
 
 .courses .box-container .box .content .icons span{
   font-size: 1.5rem;
-  color: #444;
+  color:pink;
 }
 
 .courses .box-container .box .content .icons span i{
-  color: var(--black);
+  color: var(--red);
   padding-right: .5rem;
 }
 
@@ -585,7 +560,7 @@ section{
 
 /* teacher */
 .teacher{
-  background-color: lightblue;
+  background-color: rgba(47, 54, 64,1.0)!important;
 }
 
 .teacher .box-container{
@@ -595,7 +570,7 @@ section{
 }
 
 .teacher .box-container .box{
-  background: var(--white);
+  background: var(--blck);
   box-shadow: var(--box-shadow);
   border-radius: .5rem;
   position: relative;
@@ -636,7 +611,7 @@ section{
 }
 
 .teacher .box-container .box .image .share a:hover{
-  color: var(--black);
+  color: var(--white);
   background: var(--secondary);
 }
 
@@ -648,26 +623,26 @@ section{
 
 .teacher .box-container .box .content h3{
   font-size: 2rem;
-  color: var(--black);
+  color: var(--white);
 }
 
 .teacher .box-container .box .content span{
   font-size: 1.5rem;
   line-height: 2;
-  color: #777;
+  color:white;
 }
 
 /* ends */
 
 /* review */
 .review{
-  background-color: lightblue;
+  background-color:  rgba(47, 54, 64,1.0)!important;
 }
 
 .review .slide{
   padding: 1.5rem;
   box-shadow: var(--box-shadow);
-  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border: 0.1rem solid rgba(179, 55, 113,1.0);
   border-radius: 2rem;
   position: relative;
 }
@@ -677,7 +652,7 @@ section{
   text-align: center;
   padding-bottom: .5rem;
   line-height: 1.8;
-  color: #444;
+  color:white;
 }
 
 .review .slide .wrapper{
@@ -689,19 +664,19 @@ section{
 .review .slide .wrapper .separator{
   width: .8rem;
   height: .8rem;
-  border: .1rem solid var(--black);
+  border: .1rem solid var(--white);
   transform: rotate(45deg);
   animation: rotate360 15s linear infinite;
 }
 
-@keyframes rotate360{
+/* @keyframes rotate360{
   0%{
     transform: rotate(0);
   }
   100%{
     transform: rotate(1turn);
   }
-}
+} */
 
 .review .slide .fa-quote-right{
   position: absolute;
@@ -723,26 +698,26 @@ section{
   width: 7rem;
   border-radius: 15%;
   object-fit: cover;
-  border: .1rem solid var(--black);
+  border: .1rem solid var(--white);
   padding: .5rem;
 }
 
 .review .slide .user h3{
   font-size: 2rem;
-  color: var(--black);
+  color: var(--white);
   padding-bottom: .5rem;
 }
 
 .review .slide .user .stars i{
   font-size: 1.3rem;
-  color: var(--black);
+  color: var(--white);
 }
 
 /* ends */
 
 /* blog */
 .blog{
-  background-color: lightblue;
+  background-color: rgba(47, 54, 64,1.0)!important;
 }
 
 .blog .box-container{
@@ -776,11 +751,11 @@ section{
 
 .blog .box-container .box .image h3{
   font-size: 1.5rem;
-  color: #444;
+  color:white;
   position: absolute;
   top: 1.5rem; left: 1rem;
   padding: .5rem 1.5rem;
-  background: var(--white);
+  background: var(--black);
   border-radius: 2rem 0 2rem 0;
 }
 
@@ -797,7 +772,7 @@ section{
 
 .blog .box-container .box .content .icons a{
   font-size: 1.4rem;
-  color: var(--black);
+  color: var(--pink);
 }
 
 .blog .box-container .box .content .icons a i{
@@ -806,12 +781,12 @@ section{
 
 .blog .box-container .box .content h3{
   font-size: 2.2rem;
-  color: var(--black);
+  color: var(--white);
 }
 
 .blog .box-container .box .content p{
   font-size: 1.5rem;
-  color: var(--black);
+  color:black;
   line-height: 2;
   padding: 1rem 0;
 }
@@ -820,7 +795,7 @@ section{
 
 /* contact */
 .contact{
-  background-color: lightblue;
+  background-color: rgba(47, 54, 64,1.0) !important;
 }
 
 .contact .row{
@@ -840,13 +815,13 @@ section{
 
 .contact .row form{
   flex: 1 1 40rem;
-  border: 0.1rem solid var(--primary-color);
+  border: 0.1rem solid var(rgba(47, 54, 64,1.0));
   padding: 2rem;
 }
 
 .contact .row form h3{
   font-size: 2.5rem;
-  color: #444;
+  color:white;
   padding-bottom: 1rem;
 }
 
@@ -854,12 +829,12 @@ section{
   width: 100%;
   font-size: 1.6rem;
   padding: 1.2rem 1.4rem;
-  border: .1rem solid var(--black);
+  border: .1rem solid var(--white);
   margin: .7rem 0;
 }
 
 .contact .row form .box:focus{
-  color: var(--black);
+  color: var(--white);
 }
 
 .contact .row form textarea{
@@ -872,7 +847,7 @@ section{
 /* footer */
 
 .footer{
-  background: var(--secondary);
+  background-color: rgba(10, 61, 98,1.0);
   text-align: center;
 }
 
@@ -881,16 +856,22 @@ section{
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   gap: 2rem;
 }
+.footer h3{
+  color: white;
+}
+.footer p{
+  color: white;
+}
 
 .footer .box-container .box h3{
   font-size: 2.2rem;
-  color: var(--primary-color);
+  color: white;
   padding: 1rem 0;
 }
 
 .footer .box-container .box p{
   font-size: 1.5rem;
-  color: var(--black);
+  color: var(white);
   line-height: 2;
   padding: 1rem 0;
 }
@@ -905,27 +886,27 @@ section{
   line-height: 4.5rem;
   border-radius: 10%;
   font-size: 1.7rem;
-  border: .1rem solid var(--primary-color);
-  color: var(--primary-color);
+  border: .1rem solid var(rgba(47, 54, 64,1.0));
+  color: var(rgba(47, 54, 64,1.0));
   margin-right: .3rem;
   text-align: center;
 }
 
 .footer .box-container .box .share a:hover{
-  background: var(--primary-color);
+  background: var(rgba(47, 54, 64,1.0));
   color: var(--white);
 }
 
 .footer .box-container .box .link{
   font-size: 1.7rem;
   line-height: 2;
-  color: var(--black);
+  color: var(--white);
   padding: .5rem 0;
   display: block;
 }
 
 .footer .box-container .box .link:hover{
-  color: var(--black);
+  color: var(--white);
   text-decoration: underline;
 }
 
@@ -934,12 +915,12 @@ section{
   margin-top: 3rem;
   padding-top: 3rem;
   text-align: center;
-  color: var(--black);
-  border-top: .1rem solid var(--black);
+  color: var(--white);
+  border-top: .1rem solid var(--white);
 }
 
 .footer .credit span{
-  color: var(--primary-color);
+  color: var(rgba(47, 54, 64,1.0));
 }
 
 /* ends */
