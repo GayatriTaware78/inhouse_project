@@ -157,7 +157,14 @@ section{
   margin: 0 auto;
   text-align: center;
 }
-
+#quiz-container {
+  border: 2px solid black; 
+  font-size: 24px; 
+  background-color: #f9f9f9;
+  padding: 10px;
+  text-align: center; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
 .quizzer h1 {
   font-size: 3rem;
   color: white;
