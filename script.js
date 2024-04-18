@@ -1,3 +1,4 @@
+let model = null, webcam = null, maxPredictions = null;
 let navbar = document.querySelector('.header .navbar');
 let loginForm = document.querySelector('.login-form');
 let quizContainer = document.getElementById('quiz-container');
@@ -15,7 +16,7 @@ document.querySelector('#login-btn').onclick = () =>{
 document.getElementById('start-btn').addEventListener('click', function() {
     navbar.classList.remove('active');
     loginForm.classList.remove('active');
-    
+
     document.getElementById('home').style.display = 'none';
     quizContainer.style.display = 'block';
 });
@@ -34,11 +35,15 @@ score.textContent = `Score : ${prevScore}`;
 let currentQuestion = 1;
 let totalQuestions = 15;
 let operation = '+';
+let operand1 = null, operand2 = null;
 
 function generateQuestion() {
     let r1 = ~~(Math.random() * 10); // For simplicity, using numbers up to 10
     let r2 = ~~(Math.random() * 10);
-    
+
+    operand1 = r1;
+    operand2 = r2;
+
     switch (operation) {
         case '+':
             quest.textContent = `${r1} + ${r2}`;
@@ -69,11 +74,10 @@ quiz.addEventListener('submit', (e) => {
     e.preventDefault();
     submit.style.display = "none";
     next.style.display = "block";
-    
-    let [operand1, operator, operand2] = quest.textContent.split(' ');
+
     let correctAnswer;
-    
-    switch (operator) {
+
+    switch (operation) {
         case '+':
             correctAnswer = parseInt(operand1) + parseInt(operand2);
             break;
@@ -87,7 +91,7 @@ quiz.addEventListener('submit', (e) => {
             correctAnswer = parseInt(operand1);
             break;
     }
-    
+
     if (evaluateAnswer(correctAnswer, ans.value)) {
         result.textContent = 'Wow Score Added!';
         let scr = prevScore + 1;
@@ -161,14 +165,14 @@ function generateQuiz(quizType) {
                 break;
             case 'division':
                 num2 = Math.floor(Math.random() * 9) + 1; // Divisor between 1 and 10
-                num1 = num2 * (Math.floor(Math.random() * 10) + 1); // Ensure quotient is an integer
+                num1 = num2 * (Math.floor(Math.random() * 10) + 1); 
                 break;
             default:
                 break;
         }
         const question = `What is ${num1} ${operation} ${num2}?`;
         const correctAnswer = evaluateAnswer(quizType, num1, num2);
-        const userAnswer = parseInt(prompt(question)); // Use prompt for simplicity
+        const userAnswer = parseInt(prompt(question)); 
         if (!isNaN(userAnswer) && userAnswer === correctAnswer) {
             score++;
         }
@@ -178,7 +182,7 @@ function generateQuiz(quizType) {
     const scoreMessage = document.createElement('p');
     scoreMessage.textContent = `Your score: ${score}/5`;
     if (score === 5) {
-        scoreMessage.classList.add('flash'); // Flash effect if all answers are correct
+        scoreMessage.classList.add('flash'); 
     }
     quizContainer.appendChild(scoreMessage);
 }
@@ -209,3 +213,88 @@ var swiper = new Swiper(".review-slider", {
         clickable: true,
     },
 });
+async function init() {
+    const URL = "https://teachablemachine.withgoogle.com/models/BuaJhz4Qj/";
+    model = await tmImage.load(URL + "model.json");
+    maxPredictions = model.getTotalClasses();
+
+    const flip = true;
+    webcam = new tmImage.Webcam(200, 200, flip);
+    await webcam.setup();
+    await webcam.play();
+    window.requestAnimationFrame(loop);
+
+    document.getElementById('webcam-container').appendChild(webcam.canvas);
+}
+
+function loop() {
+    webcam.update();
+    predict();
+    window.requestAnimationFrame(loop);
+}
+
+init();
+
+function predict() {
+    const prediction = model.predict(webcam.canvas);
+    for (let i = 0; i < maxPredictions; i++) {
+        const classPrediction = prediction[i].className;
+        if (prediction[i].probability.toFixed(2) > 0.7) {
+            handleGesture(classPrediction);
+            break;
+        }
+    }
+}
+
+function handleGesture(signNumber) {
+    if (currentQuestion <= totalQuestions) {
+        let userAnswer = parseInt(signNumber);
+        let correctAnswer;
+
+        switch (operation) {
+            case '+':
+                correctAnswer = parseInt(operand1) + parseInt(operand2);
+                break;
+            case '-':
+                correctAnswer = parseInt(operand1) - parseInt(operand2);
+                break;
+            case '*':
+                correctAnswer = parseInt(operand1) * parseInt(operand2);
+                break;
+            case '/':
+                correctAnswer = parseInt(operand1);
+                break;
+        }
+
+        if (userAnswer === correctAnswer) {
+            result.textContent = 'Wow Score Added!';
+            let scr = prevScore + 1;
+            prevScore = scr;
+            localStorage.setItem("score", prevScore);
+            score.textContent = `Score : ${prevScore}`;
+        } else {
+            result.textContent = `Oops! Correct ans is ${correctAnswer}`;
+        }
+
+        currentQuestion++;
+
+        if (currentQuestion <= totalQuestions) {
+            generateQuestion();
+        } else {
+            result.textContent = `Quiz Over! Your final score is: ${prevScore}`;
+            const restartButton = document.createElement('button');
+            restartButton.textContent = 'Restart Quiz';
+            restartButton.addEventListener('click', function() {
+                currentQuestion = 1;
+                prevScore = 0;
+                score.textContent = `Score : ${prevScore}`;
+                generateQuestion();
+            });
+            quiz.appendChild(restartButton);
+        }
+    }
+}
+
+
+
+
