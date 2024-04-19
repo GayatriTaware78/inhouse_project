@@ -19,7 +19,15 @@ document.getElementById('start-btn').addEventListener('click', function() {
 
     document.getElementById('home').style.display = 'none';
     quizContainer.style.display = 'block';
+
+    // Start webcam and open quiz modal
+    startWebcamAndOpenQuiz('addition'); // You can specify the quiz type here
 });
+
+async function startWebcamAndOpenQuiz(quizType) {
+    await initWebcam(); // Start webcam
+    openQuizModal(quizType); // Open quiz modal after webcam is initialized
+}
 
 let quiz = document.querySelector(".quiz");
 let result = document.querySelector(".result");
@@ -33,7 +41,7 @@ let prevScore = ~~localStorage.getItem('score');
 score.textContent = `Score : ${prevScore}`;
 
 let currentQuestion = 1;
-let totalQuestions = 15;
+let totalQuestions = 5; // Changed to 5 questions as specified
 let operation = '+';
 let operand1 = null, operand2 = null;
 
@@ -115,6 +123,7 @@ function openQuizModal(quizType) {
 }
 
 function closeQuizModal() {
+    stopWebcam(); // Stop webcam when closing modal
     const quizContainer = document.getElementById('quiz-container');
     quizContainer.innerHTML = ''; // Reset quiz container content
     document.getElementById('quiz-modal').style.display = 'none'; // Hide modal
@@ -201,46 +210,32 @@ function evaluateAnswer(quizType, num1, num2) {
             return null;
     }
 }
-var swiper = new Swiper(".review-slider", {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    autoplay:{
-        delay:1500,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
-async function init() {
+
+async function initWebcam() {
     const URL = "https://teachablemachine.withgoogle.com/models/BuaJhz4Qj/";
     model = await tmImage.load(URL + "model.json");
     maxPredictions = model.getTotalClasses();
 
     const flip = true;
-    webcam = new tmImage.Webcam(200, 200, flip);
-    await webcam.setup();
-    await webcam.play();
-    window.requestAnimationFrame(loop);
-
-    document.getElementById('webcam-container').appendChild(webcam.canvas);
+    webcam = new tmImage.Webcam(200, 200, flip); // Initialize webcam
+    await webcam.setup(); // Setup webcam
+    await webcam.play(); // Start webcam feed
+    document.getElementById('webcam-container').appendChild(webcam.canvas); // Add webcam feed to the container
+    window.requestAnimationFrame(loop); // Start sign language detection loop
 }
 
 function loop() {
-    webcam.update();
-    predict();
-    window.requestAnimationFrame(loop);
+    webcam.update(); // Update webcam feed
+    predict(); // Predict sign language
+    window.requestAnimationFrame(loop); // Continue loop
 }
 
-init();
-
 function predict() {
-    const prediction = model.predict(webcam.canvas);
+    const prediction = model.predict(webcam.canvas); // Predict sign language
     for (let i = 0; i < maxPredictions; i++) {
         const classPrediction = prediction[i].className;
         if (prediction[i].probability.toFixed(2) > 0.7) {
-            handleGesture(classPrediction);
+            handleGesture(classPrediction); // Handle detected sign language gesture
             break;
         }
     }
@@ -292,6 +287,14 @@ function handleGesture(signNumber) {
             });
             quiz.appendChild(restartButton);
         }
+    }
+}
+
+async function stopWebcam() {
+    if (webcam) {
+        webcam.pause(); // Pause webcam feed
+        await webcam.stop(); // Stop webcam feed
+        webcam = null; // Release webcam resources
     }
 }
 
