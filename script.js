@@ -134,7 +134,7 @@ function restartQuiz() {
     generateQuiz(quizType);
 }
 
-function generateQuiz(quizType) {
+async function generateQuiz(quizType) {
     const quizContainer = document.getElementById('quiz-container');
     quizContainer.innerHTML = ''; // Clear previous quiz
     quizContainer.dataset.quizType = quizType;
@@ -161,29 +161,22 @@ function generateQuiz(quizType) {
     for (let i = 0; i < 5; i++) {
         switch (quizType) {
             case 'addition':
-                num1 = Math.floor(Math.random() * 10) + 1; // Limit to 1-10
-                num2 = Math.floor(Math.random() * 10) + 1; // Limit to 1-10
-                break;
             case 'subtraction':
-                num1 = Math.floor(Math.random() * 10) + 1; // Limit to 1-10
-                num2 = Math.floor(Math.random() * num1) + 1; // Limit to 1-10
+                await startWebcamAndOpenQuiz(quizType); // Start webcam and open quiz modal
                 break;
             case 'multiplication':
+            case 'division':
                 num1 = Math.floor(Math.random() * 10) + 1; // Limit to 1-10
                 num2 = Math.floor(Math.random() * 10) + 1; // Limit to 1-10
-                break;
-            case 'division':
-                num2 = Math.floor(Math.random() * 9) + 1; // Divisor between 1 and 10
-                num1 = num2 * (Math.floor(Math.random() * 10) + 1); 
+                const question = `What is ${num1} ${operation} ${num2}?`;
+                const correctAnswer = evaluateAnswer(quizType, num1, num2);
+                const userAnswer = parseInt(prompt(question)); 
+                if (!isNaN(userAnswer) && userAnswer === correctAnswer) {
+                    score++;
+                }
                 break;
             default:
                 break;
-        }
-        const question = `What is ${num1} ${operation} ${num2}?`;
-        const correctAnswer = evaluateAnswer(quizType, num1, num2);
-        const userAnswer = parseInt(prompt(question)); 
-        if (!isNaN(userAnswer) && userAnswer === correctAnswer) {
-            score++;
         }
     }
 
@@ -297,4 +290,11 @@ async function stopWebcam() {
         webcam = null; // Release webcam resources
     }
 }
+
+document.getElementById('webcam-container').addEventListener('click', function() {
+    document.getElementById('webcam-container').removeEventListener('click', this);
+    webcam.update(); // Initial webcam update
+    window.requestAnimationFrame(loop); // Start sign language detection loop
+});
+
 
