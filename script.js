@@ -298,6 +298,3 @@ async function stopWebcam() {
     }
 }
 
-
-
-
