@@ -7,20 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!-- custom css link -->
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest"></script>
-
-  
-  
-
 </head>
 <body>
-    
-   
     <header class="header">
         <a href="#" class="logo"><i class="fas fa-book"></i> QuietQuizzes</a>
         <nav class="navbar">
@@ -40,7 +33,6 @@
         </div>
     </header>
     
-
     <!-- home section starts-->
     <section class="home" id="home">
         <div class="content">
@@ -53,40 +45,32 @@
         </div>
         <div class="image-container">
             <img src="images/home_img.png" alt="Your image" class="image">
-          </div>
+        </div>
     </section>
     
-    <!-- home section ends -->
-    
-    <!-- quizz section starts -->
-    
-    
     <!-- Quizzer Section -->
-<section class="quizzer">
-    <div class="container">
-        <div id="webcam-container"></div>
-
-      <div id="operation-buttons" class="button-container">
-        <h1>Quizzes </h1>
-
-        <button onclick="openQuizModal('addition')">Addition Quiz</button>
-        <button onclick="openQuizModal('subtraction')">Subtraction Quiz</button>
-        <button onclick="openQuizModal('multiplication')">Multiplication Quiz</button>
-        <button onclick="openQuizModal('division')">Division Quiz</button>
-      </div>
-  
-      <div id="quiz-modal" class="modal">
-        <div class="modal-content">
-          <span class="close" onclick="closeQuizModal()">&times;</span>
-          <div id="quiz-container"></div>
-          <button onclick="restartQuiz()">Restart Quiz</button>
-          <button onclick="closeQuizModal()">Go Back</button> <!-- Button to go back -->
+    <section class="quizzer">
+        <div class="container">
+            <div id="webcam-container"></div>
+            <div id="operation-buttons" class="button-container">
+                <h1>Quizzes</h1>
+                <button onclick="startQuiz('addition')">Addition Quiz</button>
+                <button onclick="startQuiz('subtraction')">Subtraction Quiz</button>
+                <button onclick="startQuiz('multiplication')">Multiplication Quiz</button>
+                <button onclick="startQuiz('division')">Division Quiz</button>
+            </div>
+            <div id="quiz-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeQuizModal()">&times;</span>
+                    <div id="quiz-container"></div>
+                    <button onclick="restartQuiz()">Restart Quiz</button>
+                    <button onclick="closeQuizModal()">Go Back</button> <!-- Button to go back -->
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <!-- Quizzer Section Ends -->
-  
+    </section>
+    <!-- Quizzer Section Ends -->
+
    
 
     <!-- about section starts -->
