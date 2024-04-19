@@ -25,8 +25,10 @@ document.getElementById('start-btn').addEventListener('click', function() {
 });
 
 async function startWebcamAndOpenQuiz(quizType) {
-    await initWebcam(); // Start webcam
-    openQuizModal(quizType); // Open quiz modal after webcam is initialized
+    if (quizType === 'addition' || quizType === 'subtraction') {
+        await initWebcam(); // Start webcam if the quiz type is addition or subtraction
+    }
+    openQuizModal(quizType); // Open quiz modal after webcam is initialized (if needed)
 }
 
 let quiz = document.querySelector(".quiz");
@@ -162,21 +164,26 @@ async function generateQuiz(quizType) {
         switch (quizType) {
             case 'addition':
             case 'subtraction':
-                await startWebcamAndOpenQuiz(quizType); // Start webcam and open quiz modal
+                if (webcam) {
+                    await startWebcamAndOpenQuiz(quizType); // Start webcam and open quiz modal if the quiz type is addition or subtraction
+                }
                 break;
             case 'multiplication':
             case 'division':
                 num1 = Math.floor(Math.random() * 10) + 1; // Limit to 1-10
                 num2 = Math.floor(Math.random() * 10) + 1; // Limit to 1-10
-                const question = `What is ${num1} ${operation} ${num2}?`;
-                const correctAnswer = evaluateAnswer(quizType, num1, num2);
-                const userAnswer = parseInt(prompt(question)); 
-                if (!isNaN(userAnswer) && userAnswer === correctAnswer) {
-                    score++;
-                }
                 break;
             default:
                 break;
+        }
+        
+        const correctAnswer = evaluateAnswer(quizType, num1, num2);
+        
+        // Add code to process webcam input and evaluate the answer
+        // You'll need to handle user input from the webcam and compare it with the correct answer
+        
+        if (/* condition to check if user's answer is correct */) {
+            score++;
         }
     }
 
@@ -296,5 +303,6 @@ document.getElementById('webcam-container').addEventListener('click', function()
     webcam.update(); // Initial webcam update
     window.requestAnimationFrame(loop); // Start sign language detection loop
 });
+
 
 
