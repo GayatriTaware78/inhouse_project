@@ -49,7 +49,7 @@
     </section>
     
     <!-- Quizzer Section -->
-    <section class="quizzer">
+    <!-- <section class="quizzer">
         <div class="container">
             <div id="webcam-container"></div>
             <div id="operation-buttons" class="button-container">
@@ -65,13 +65,101 @@
                     <div id="quiz-container"></div>
                     <button onclick="restartQuiz()">Restart Quiz</button>
                     <button onclick="closeQuizModal()">Go Back</button> <!-- Button to go back -->
-                </div>
+                <!-- </div>
             </div>
         </div>
-    </section>
-    <!-- Quizzer Section Ends -->
+    </section> --> -->
+    <!-- Quizzer Section Ends, old code  -->
 
-   
+   <!-- Quizzer Section | updated new code-->
+<section class="quizzer">
+    <div class="container">
+      <div id="operation-buttons" class="button-container">
+        <h1>Quizzes </h1>
+
+        <button onclick="openQuizModal('addition')">Addition Quiz</button>
+        <button onclick="openQuizModal('subtraction')">Subtraction Quiz</button>
+        <button onclick="openQuizModal('multiplication')">Multiplication Quiz</button>
+        <button onclick="openQuizModal('division')">Division Quiz</button>
+      </div>
+
+      <div id="quiz-modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeQuizModal()">&times;</span>
+          <div id="quiz-container">
+            <video id="webcam" autoplay></video>
+            <p id="quiz"></p>
+          </div>
+          <button onclick="restartQuiz()">Restart Quiz</button>
+          <button onclick="closeQuizModal()">Go Back</button> <!-- Button to go back -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Quizzer Section Ends -->
+
+<script>
+// Webcam interface
+var video = document.querySelector('#webcam');
+
+function openQuizModal(operation) {
+  var modal = document.querySelector('#quiz-modal');
+  modal.style.display = "block";
+
+  navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+  .then(function(stream) {
+    video.srcObject = stream;
+    generateQuiz(operation);
+  })
+  .catch(function(error) {
+    console.log("Something went wrong!");
+  });
+}
+
+// Quiz generation
+function generateQuiz(operation) {
+  var num1 = Math.floor(Math.random() * 10);
+  var num2 = Math.floor(Math.random() * 10);
+  var quizElement = document.querySelector('#quiz');
+
+  switch(operation) {
+    case 'addition':
+      quizElement.textContent = num1 + ' + ' + num2 + ' = ?';
+      break;
+    case 'subtraction':
+      quizElement.textContent = num1 + ' - ' + num2 + ' = ?';
+      break;
+    case 'multiplication':
+      quizElement.textContent = num1 + ' * ' + num2 + ' = ?';
+      break;
+    case 'division':
+      while(num2 == 0) {
+        num2 = Math.floor(Math.random() * 10);
+      }
+      quizElement.textContent = num1 + ' / ' + num2 + ' = ?';
+      break;
+  }
+}
+
+function closeQuizModal() {
+  var modal = document.querySelector('#quiz-modal');
+  modal.style.display = "none";
+
+  var stream = video.srcObject;
+  var tracks = stream.getTracks();
+  tracks.forEach(function(track) {
+    track.stop();
+  });
+  video.srcObject = null;
+}
+
+function restartQuiz() {
+  var operation = 'addition'; // You could modify this to restart with the same operation
+  closeQuizModal();
+  openQuizModal(operation);
+}
+</script>
+
 
     <!-- about section starts -->
 
@@ -587,18 +675,7 @@
 
     <!-- footer section ends -->
 
-
-
-
-
-
-
-
-
-
-
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- custom js -->
     <script src="js/script.js"></script>
 </body>
